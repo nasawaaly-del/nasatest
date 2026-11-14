@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>JEZERO ATLAS // Planetary Operations & Mission Planning Platform (500 km Radius)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS: CHUNKBASE-INSPIRED DARK COBALT, OBSIDIAN & ASH-GREY PALETTE
+       ========================================================================== */
+    :root {
+      --cobalt-bright: #0738a8;
+      --cobalt-mid: #052682;
+      --midnight-navy: #03185e;
+      --obsidian-black: #090b0f;
+      --ash-dark: #16191f;
+      --ash-mid: #22262e;
+      --ash-light: #949ba8;
+
+      --bg-canvas: #090b0f;
+      --bg-header: #0e1117;
+      --bg-panel: rgba(3, 24, 94, 0.84);
+      --bg-panel-alt: rgba(14, 17, 23, 0.88);
+      --bg-surface: #16191f;
+      --bg-surface-hover: #22262e;
+      --border-subtle: rgba(148, 155, 168, 0.28);
+      --border-accent: rgba(56, 189, 248, 0.55);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #949ba8;
+      --accent-primary: #052682;
+      --accent-secondary: #0738a8;
+      --accent-glow: #38bdf8;
+      --shadow-hud: 0 14px 36px rgba(0, 0, 0, 0.82);
+    }
+
+    html.light {
+      --bg-canvas: #e2e8f0;
+      --bg-header: #ffffff;
+      --bg-panel: rgba(255, 255, 255, 0.90);
+      --bg-panel-alt: rgba(248, 250, 252, 0.92);
+      --bg-surface: #f1f5f9;
+      --bg-surface-hover: #e2e8f0;
+      --border-subtle: rgba(22, 25, 31, 0.20);
+      --border-accent: #052682;
+      --text-primary: #090b0f;
+      --text-secondary: #1e293b;
+      --text-muted: #475569;
+      --accent-primary: #052682;
+      --accent-secondary: #0738a8;
+      --accent-glow: #0738a8;
+      --shadow-hud: 0 12px 30px rgba(3, 24, 94, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      overflow: hidden;
+      height: 100dvh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    .font-mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* GPU-Accelerated Translucent HUD Windows */
+    .hud-window {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--bg-panel);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-hud);
+      border-radius: 10px;
+      will-change: transform, width, height;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hud-window.focused {... (123 KB left)
